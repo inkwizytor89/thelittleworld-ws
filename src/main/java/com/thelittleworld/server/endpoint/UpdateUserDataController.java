@@ -2,8 +2,8 @@ package com.thelittleworld.server.endpoint;
 
 import com.thelittleworld.dao.CompanyDAO;
 import com.thelittleworld.dao.UserDAO;
+import com.thelittleworld.entity.Companion;
 import com.thelittleworld.entity.Company;
-import com.thelittleworld.entity.Member;
 import com.thelittleworld.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,6 +34,6 @@ public class UpdateUserDataController {
     private class UserData {
         public User user;
         public Company company;
-        public Member member;
+        public Companion companion;
     }
 }

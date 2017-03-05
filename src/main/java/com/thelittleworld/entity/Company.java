@@ -30,6 +30,6 @@ public class Company {
 
     @OneToMany
     @JoinColumn(name="company_id")
-    public List<Member> members;
+    public List<Companion> companions;
 
 }
