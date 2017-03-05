@@ -5,7 +5,7 @@ import com.thelittleworld.entity.Member;
 
 import java.util.List;
 
-public interface MemberDao {
+public interface MemberDAO {
 
     List<Member> findMembersforTeam(Integer teamId);
 }

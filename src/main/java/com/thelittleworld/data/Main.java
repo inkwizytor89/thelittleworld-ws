@@ -6,7 +6,7 @@ package com.thelittleworld.data;
 public class Main {
 
     public static void main(String[] args) {
-        Company zgraja = new Company("zgraja");
+        CompanyOld zgraja = new CompanyOld("zgraja");
 
         zgraja.add(new Dwarf("Mikolaj", zgraja));
         zgraja.add(new Dwarf("Tomasz", zgraja));

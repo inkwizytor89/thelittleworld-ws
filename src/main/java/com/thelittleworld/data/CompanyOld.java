@@ -2,13 +2,13 @@ package com.thelittleworld.data;
 
 import java.util.ArrayList;
 
-public class Company {
+public class CompanyOld {
 
 	private String name;
 	private ArrayList<Dwarf> dwarfs = new ArrayList();
 	private int companyMorales = 300;
 
-	public Company(String name) {
+	public CompanyOld(String name) {
 		this.name = name;
 	}
 	
@@ -26,7 +26,7 @@ public class Company {
 
 	@Override
 	public String toString() {
-		String toString = "Company " + name + " with " + dwarfs.size() + " dwarfs:\n\n";
+		String toString = "CompanyOld " + name + " with " + dwarfs.size() + " dwarfs:\n\n";
 		for (Dwarf dwarf : dwarfs) {
 			toString += dwarf.toString() + "\n";
 		}

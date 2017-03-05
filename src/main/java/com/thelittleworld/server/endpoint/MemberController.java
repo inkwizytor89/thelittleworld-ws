@@ -1,6 +1,6 @@
 package com.thelittleworld.server.endpoint;
 
-import com.thelittleworld.dao.MemberDao;
+import com.thelittleworld.dao.MemberDAO;
 import com.thelittleworld.entity.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,11 +14,11 @@ import java.util.List;
 public class MemberController {
 
     @Autowired
-    private MemberDao memberDao;
+    private MemberDAO memberDAO;
 
     @RequestMapping(value = "/teams", method = RequestMethod.GET)
     public List<Member> team(@RequestParam(value = "team_id", required = true) Integer teamId) {
 
-        return memberDao.findMembersforTeam(teamId);
+        return memberDAO.findMembersforTeam(teamId);
     }
 }

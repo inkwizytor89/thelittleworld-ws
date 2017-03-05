@@ -3,13 +3,13 @@ package com.thelittleworld.data;
 public class Dwarf {
 
 	private String name;
-	private final Company company;
+	private final CompanyOld companyOld;
 
 	private Nature nature;
 
-	public Dwarf(String name, Company company) {
+	public Dwarf(String name, CompanyOld companyOld) {
 		this.name = name;
-		this.company = company;
+		this.companyOld = companyOld;
 		nature = new Nature();
 	}
 
@@ -18,7 +18,7 @@ public class Dwarf {
 	}
 
 	public double getMorale() {
-		return company.getMorales() / company.getDwarfs().size();
+		return companyOld.getMorales() / companyOld.getDwarfs().size();
 	}
 
 	@Override

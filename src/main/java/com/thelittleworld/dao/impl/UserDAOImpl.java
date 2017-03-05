@@ -1,36 +1,25 @@
 package com.thelittleworld.dao.impl;
 
-import java.sql.CallableStatement;
-import java.sql.Types;
-
-import com.thelittleworld.dao.UserDao;
+import com.thelittleworld.dao.UserDAO;
+import com.thelittleworld.entity.User;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.CallableStatement;
+import java.sql.Types;
+
 @Transactional
 @Repository
-public class UserDaoImpl implements UserDao {
+public class UserDAOImpl implements UserDAO {
 
     @Autowired
     private SessionFactory sessionFactory;
 
-//    @SuppressWarnings("unchecked")
-//    public User findByUserName(String login) {
-//
-//        List<User> users = sessionFactory.getCurrentSession()
-//                .createQuery("from User where login=?")
-//                .setParameter(0, login)
-//                .list();
-//
-//        if (users.size() > 0) {
-//            return users.get(0);
-//        } else {
-//            return null;
-//        }
-//
-//    }
+    public User getUser(Integer userId) {
+    return sessionFactory.getCurrentSession().get(User.class, userId);
+    }
 
     @SuppressWarnings("unchecked")
     public Boolean login(String login, String password) {

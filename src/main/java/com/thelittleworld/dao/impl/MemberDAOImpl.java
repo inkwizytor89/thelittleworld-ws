@@ -1,6 +1,6 @@
 package com.thelittleworld.dao.impl;
 
-import com.thelittleworld.dao.MemberDao;
+import com.thelittleworld.dao.MemberDAO;
 import com.thelittleworld.entity.Member;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Transactional
 @Repository
-public class MemberDaoImpl implements MemberDao{
+public class MemberDAOImpl implements MemberDAO {
 
     @Autowired
     private SessionFactory sessionFactory;
