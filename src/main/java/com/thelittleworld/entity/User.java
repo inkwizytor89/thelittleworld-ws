@@ -14,9 +14,6 @@ public class User {
     @Column(name = "login", unique = true, nullable = false, length = 40)
     public String login;
 
-    @Column(name = "password", nullable = false, length = 60)
-    public String password;
-
     @Column(name = "nick", nullable = false, length = 40)
     public String nick;
 
@@ -32,11 +29,8 @@ public class User {
     @Column(name = "created")
     public Date created;
 
-    @Column(name = "company_id")
-    public Integer companyId;
-
     @OneToOne(fetch = FetchType.LAZY)
     @PrimaryKeyJoinColumn
-    Company company;
+    public Company company;
 
 }
