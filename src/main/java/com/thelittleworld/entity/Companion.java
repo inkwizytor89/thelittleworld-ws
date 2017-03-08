@@ -2,6 +2,7 @@ package com.thelittleworld.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "companions")
@@ -50,4 +51,10 @@ public class Companion {
     @OneToOne
     @PrimaryKeyJoinColumn
     public Equipment equipment;
+
+    @OneToMany
+    @JoinColumn(name="companion_id")
+    public List<Inventory> inventories;
+
+
 }
