@@ -2,7 +2,6 @@ package com.thelittleworld.entity;
 
 import javax.persistence.*;
 
-// TODO Dokończyć
 @Entity
 @Table(name = "equipments")
 public class Equipment {
