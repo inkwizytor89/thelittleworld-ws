@@ -1,9 +1,6 @@
 package com.thelittleworld.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "items")
@@ -16,7 +13,7 @@ public class Item {
     @Column(name = "name", nullable = false, length = 40)
     public String name;
 
-    @Column(name = "description", nullable = false, length = 40)
+    @Column(name = "description", nullable = false, length = 256)
     public String description;
 
     @Column(name = "type", nullable = false)
@@ -24,4 +21,12 @@ public class Item {
 
     @Column(name = "weight", nullable = false)
     public Double weight;
+
+    @OneToOne
+    @JoinColumn(name ="id", referencedColumnName="item_id")
+    public Weapon weapon;
+
+    @OneToOne
+    @JoinColumn(name ="id", referencedColumnName="item_id")
+    public Armor armor;
 }
