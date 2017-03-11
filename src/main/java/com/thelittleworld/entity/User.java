@@ -23,6 +23,9 @@ public class User {
     @Column(name = "email", unique = true, nullable = false, length = 40)
     public String email;
 
+    @Column(name = "data_version")
+    public Date dataVersion;
+
     @Column(name = "updated")
     public Date updated;
 

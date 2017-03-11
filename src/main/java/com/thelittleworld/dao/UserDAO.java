@@ -6,5 +6,5 @@ public interface UserDAO {
 
     User getUser(Integer userId);
 
-    Boolean login(String login, String password);
+    User login(String login, String password);
 }

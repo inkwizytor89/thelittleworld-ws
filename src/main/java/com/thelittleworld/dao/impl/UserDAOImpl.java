@@ -22,21 +22,21 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @SuppressWarnings("unchecked")
-    public Boolean login(String login, String password) {
+    public User login(String login, String password) {
 
-        Boolean accept = sessionFactory.getCurrentSession()
+        Integer userId = sessionFactory.getCurrentSession()
                 .doReturningWork(connection -> {
                     try (CallableStatement function = connection.prepareCall(
-                            "{ ? = call check_password(?, ?) }" )) {
-                        function.registerOutParameter(1, Types.BOOLEAN);
+                            "{ ? = call login(?, ?) }" )) {
+                        function.registerOutParameter(1, Types.INTEGER);
                         function.setString(2, login);
                         function.setString(3, password);
                         function.execute();
-                        return function.getBoolean(1);
+                        return function.getInt(1);
                     }
                 } );
 
-        return accept;
+        return getUser(userId);
     }
 
 }

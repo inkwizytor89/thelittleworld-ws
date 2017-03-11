@@ -15,7 +15,7 @@ public class UpdateUserDataController {
     private UserDAO userDAO;
 
     @RequestMapping(value = "/update_user_data", method = RequestMethod.GET)
-    public User updateUserData(@RequestParam(value = "user_id", required = true) Integer userId) {
+    public User updateUserData(@RequestParam(value = "user_id") Integer userId) {
 
         // TODO INK: Hibernate.initialize(subProcessModel.getElement());
         return userDAO.getUser(userId);
