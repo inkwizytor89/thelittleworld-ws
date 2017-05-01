@@ -1,7 +1,8 @@
-package com.thelittleworld.server.endpoint.respons;
+package com.thelittleworld.server.endpoint;
 
 import com.thelittleworld.dao.DBVersionDAO;
 import com.thelittleworld.dao.UserDAO;
+import com.thelittleworld.server.endpoint.respons.VersionResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
