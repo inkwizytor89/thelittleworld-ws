@@ -2,6 +2,8 @@ package com.thelittleworld.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -35,5 +37,8 @@ public class User {
     @OneToOne(fetch = FetchType.LAZY)
     @PrimaryKeyJoinColumn
     public Company company;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "userId")
+    public List<UserRole> userRoles;
 
 }
