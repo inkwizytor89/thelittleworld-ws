@@ -12,12 +12,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
-//@Service("userDetailsService")
+@Service("userDetailsService")
 public class MyUserDetailsService implements UserDetailsService {
 
     @Autowired
@@ -30,18 +27,19 @@ public class MyUserDetailsService implements UserDetailsService {
 
         com.thelittleworld.entity.User user = userDAO.findByUserName(username);
         List<GrantedAuthority> authorities =
-                buildUserAuthority(new UserRole()/*user.userRole*/);
+                buildUserAuthority(user.userRoles);
 
         return buildUserForAuthentication(user, authorities);
     }
 
-    private List<GrantedAuthority> buildUserAuthority(UserRole userRole) {
+    private List<GrantedAuthority> buildUserAuthority(Collection<UserRole> userRoles) {
 
         Set<GrantedAuthority> setAuths = new HashSet<GrantedAuthority>();
 
         // Build user's authorities
+        for(UserRole userRole : userRoles) {
             setAuths.add(new SimpleGrantedAuthority(userRole.role));
-
+        }
         List<GrantedAuthority> Result = new ArrayList<GrantedAuthority>(setAuths);
 
         return Result;
